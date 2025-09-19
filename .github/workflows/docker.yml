@@ -39,5 +39,3 @@ jobs:
           tags: |
             ahma98/demo-ci-cd:latest
             ahma98/demo-ci-cd:${{ github.sha }} # Tag avec le SHA du commit pour la traçabilité
-          cache-from: type=gha # Utilise le cache GitHub pour accélérer le build
-          cache-to: type=gha,mode=max
