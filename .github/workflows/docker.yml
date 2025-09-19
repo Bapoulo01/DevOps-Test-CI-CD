@@ -36,4 +36,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ahma98/test-ci-cd:latest
+            ahma98/demo-ci-cd:latest
