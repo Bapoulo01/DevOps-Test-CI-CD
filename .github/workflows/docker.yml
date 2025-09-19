@@ -1,0 +1,43 @@
+name: Build and Push Node.js Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # Spécifie ta version de Node.js (18, 20, etc.)
+          cache: 'npm' # Cache les dépendances pour accélérer les builds futurs
+
+      - name: Installer les dépendances
+        run: npm ci # Utilise 'npm ci' pour des installations plus rapides et reproductibles
+
+      - name: Lancer les tests (optionnel mais recommandé)
+        run: npm test # S'assure que tout fonctionne avant de build l'image
+
+      - name: Login à Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build et Push l'image Docker
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ahma98/demo-ci-cd:latest
+            ahma98/demo-ci-cd:${{ github.sha }} # Tag avec le SHA du commit pour la traçabilité
+          cache-from: type=gha # Utilise le cache GitHub pour accélérer le build
+          cache-to: type=gha,mode=max
