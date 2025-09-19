@@ -13,11 +13,13 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js et run tests
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+
+      - name: Installer les dépendances et lancer les tests
         run: |
           npm ci
           npm test
