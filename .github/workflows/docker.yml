@@ -13,17 +13,14 @@ jobs:
       - name: Checkout du code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js et run tests
         uses: actions/setup-node@v4
         with:
-          node-version: '22' # Spécifie ta version de Node.js (18, 20, etc.)
-          cache: 'npm' # Cache les dépendances pour accélérer les builds futurs
-
-      - name: Installer les dépendances
-        run: npm ci # Utilise 'npm ci' pour des installations plus rapides et reproductibles
-
-      - name: Lancer les tests (optionnel mais recommandé)
-        run: npm test # S'assure que tout fonctionne avant de build l'image
+          node-version: '20'
+          cache: 'npm'
+        run: |
+          npm ci
+          npm test
 
       - name: Login à Docker Hub
         uses: docker/login-action@v3
@@ -37,5 +34,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ahma98/demo-ci-cd:latest
-            ahma98/demo-ci-cd:${{ github.sha }} # Tag avec le SHA du commit pour la traçabilité
+            ahma98/test-ci-cd:latest
