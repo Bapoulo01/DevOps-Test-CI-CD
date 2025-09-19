@@ -1,0 +1,112 @@
+{
+  "filieres": [
+    {
+      "id": 1,
+      "libelle": "DWM"
+    },
+    {
+      "id": 2,
+      "libelle": "GL"
+    },
+    {
+      "id": 3,
+      "libelle": "DN"
+    }
+  ],
+  "niveaux": [
+    {
+      "id": 1,
+      "libelle": "L1"
+    },
+    {
+      "id": 2,
+      "libelle": "L2"
+    },
+    {
+      "id": 3,
+      "libelle": "L3"
+    }
+  ],
+  "classes": [
+    {
+      "id": 1,
+      "libelle": "L1 DWM",
+      "niveauId": 1,
+      "filiereId": 1
+    },
+    {
+      "id": 2,
+      "libelle": "L2 GL",
+      "niveauId": 2,
+      "filiereId": 2
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "libelle": "Algo"
+    },
+    {
+      "id": 2,
+      "libelle": "Java"
+    },
+    {
+      "id": 3,
+      "libelle": "JavaScript"
+    },
+    {
+      "id": 4,
+      "libelle": "TS"
+    },
+    {
+      "id": 5,
+      "libelle": "Python"
+    }
+  ],
+  "cours": [
+    {
+      "id": 1,
+      "dateCours": "2024-08-17T10:00:00Z",
+      "duree": 120,
+      "moduleId": 1,
+      "classeId": 1
+    },
+    {
+      "id": 2,
+      "dateCours": "2024-08-17T10:00:00.000Z",
+      "duree": 180,
+      "classeId": 2,
+      "moduleId": 2
+    }
+  ],
+  "etudiants": [
+    {
+      "id": 1,
+      "matricule": "ETU001",
+      "nomComplet": "Mamadou Ndiaye",
+      "adresse": "Dakar",
+      "login": "mndiaye",
+      "password": "passer123",
+      "classeId": 1
+    },
+    {
+      "id": 2,
+      "matricule": "ETU002",
+      "nomComplet": "Fatou Diop",
+      "adresse": "Thiès",
+      "login": "ftdiop@gmail.com",
+      "password": "passer123",
+      "classeId": 2
+    },
+    {
+      "id": 3,
+      "nomComplet": "Ibrahima Sarr",
+      "matricule": "ETU003",
+      "adresse": "Saint-Louis",
+      "login": "ibsarr@gmail.com",
+      "password": "passer123",
+      "classeId": 1
+    }
+  ]
+}
+
